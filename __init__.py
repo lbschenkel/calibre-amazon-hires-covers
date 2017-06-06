@@ -6,11 +6,11 @@ from calibre.utils.cleantext import clean_ascii_chars
 from calibre.ebooks.metadata.sources.base import Source, Option
 
 class KindleHighResCovers(Source):
-    name                    = 'Amazon hi-res covers (Kindle)'
-    description             = 'Downloads high resolution covers from Amazon (only Kindle books)'
+    name                    = 'Kindle hi-res covers'
+    description             = 'Downloads high resolution covers for books with Kindle ASINs'
     capabilities            = frozenset(['cover'])
     author                  = 'Leonardo Brondani Schenkel <leonardo@schenkel.net>'
-    version                 = (0, 1, 0)
+    version                 = (0, 2, 0)
     can_get_multiple_covers = True
     sources = frozenset([
         'http://z2-ec2.images-amazon.com/images/P/{0}.01.MAIN._SCRM_.jpg',
