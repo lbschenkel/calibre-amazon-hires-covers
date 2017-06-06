@@ -9,11 +9,11 @@ from lxml.html import fromstring
 from urlparse import urljoin
 
 class KindleHighResCovers(Source):
-    name                    = 'Kindle hi-res covers'
-    description             = 'Downloads high resolution covers for books with Kindle ASINs'
+    name                    = 'Kindle covers (G)'
+    description             = 'Downloads high resolution covers for Kindle editions from Amazon'
     capabilities            = frozenset(['cover'])
     author                  = 'Leonardo Brondani Schenkel <leonardo@schenkel.net>'
-    version                 = (0, 2, 0)
+    version                 = (0, 3, 0)
     can_get_multiple_covers = True
     
     KEY_MAX_COVERS = 'max_covers'
