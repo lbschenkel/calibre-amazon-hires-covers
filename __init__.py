@@ -1,12 +1,12 @@
 import re
-import urllib
 from calibre import as_unicode
 from calibre import browser
 from calibre.utils.cleantext import clean_ascii_chars
 from calibre.ebooks.metadata.sources.base import Source, Option
 from contextlib import closing
 from lxml.html import fromstring
-from urlparse import urljoin
+from six import iteritems
+from six.moves.urllib.parse import urljoin, quote_plus
 
 class KindleHighResCovers(Source):
     name                    = 'Kindle hi-res covers'
@@ -42,7 +42,7 @@ def get_cover_urls(log, title, authors, identifiers, timeout):
     urls = set()
     asins = set()
     # check for ASINs identifiers first
-    for id, value in identifiers.iteritems():
+    for id, value in iteritems(identifiers):
         is_asin   = id == 'asin' or id == 'mobi-asin' or id.startswith('amazon')
         is_kindle = is_kindle_asin(value)
         if is_asin and is_kindle:
@@ -92,7 +92,7 @@ def search_edition_goodreads(log, query):
     edition_url = None
 
     br = browser()
-    search_url = urljoin(goodreads_url, '/search?q=' + urllib.quote_plus(query))
+    search_url = urljoin(goodreads_url, '/search?q=' + quote_plus(query))
     log.info('Searching Goodreads for book: %s' % search_url)
     with closing(br.open(search_url)) as response:
         url = br.geturl()
