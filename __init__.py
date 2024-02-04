@@ -36,8 +36,10 @@ class KindleHighResCovers(Source):
 
 def get_cover_urls(log, title, authors, identifiers, timeout):
     sources = frozenset([
-        'http://z2-ec2.images-amazon.com/images/P/{0}.01.MAIN._SCRM_.jpg',
-        'https://s3.cn-north-1.amazonaws.com.cn/sitbweb-cn/content/{0}/images/cover.jpg',
+        'https://ec2.images-amazon.com/images/P/{0}.01.MAIN._SCRM_.jpg',
+        # No longer seem to work as of 2024-02-04:
+        #'http://z2-ec2.images-amazon.com/images/P/{0}.01.MAIN._SCRM_.jpg',
+        #'https://s3.cn-north-1.amazonaws.com.cn/sitbweb-cn/content/{0}/images/cover.jpg',
     ])
     urls = set()
     asins = set()
